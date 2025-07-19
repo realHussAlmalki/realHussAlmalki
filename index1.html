@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enhanced SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#000000">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="description" content="Security breach notification - Compromised system data report">
+    <meta name="author" content="Err0r_HB | ByteBlitz">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Security Breach Notification">
+    <meta property="og:description" content="Compromised system data report">
+    <meta property="og:image" content="https://i.pinimg.com/736x/c3/22/18/c322188a2e2e2b59445fbb3f701e5366.jpg">
+    <meta property="og:url" content="https://i.pinimg.com/736x/c3/22/18/c322188a2e2e2b59445fbb3f701e5366.jpg">
+    <meta property="og:site_name" content="ByteBlitz Security">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Security Breach Notification">
+    <meta name="twitter:description" content="Compromised system data report">
+    <meta name="twitter:image" content="https://i.pinimg.com/736x/c3/22/18/c322188a2e2e2b59445fbb3f701e5366.jpg">
+    
+    <title>SECURITY BREACH NOTIFICATION :: HEXDUMP</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/c3/22/18/c322188a2e2e2b59445fbb3f701e5366.jpg" type="image/x-icon">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff0000;
+            --primary-dark: #5c0000;
+            --primary-transparent: rgba(255, 0, 0, 0.15);
+            --primary-glow: rgba(255, 0, 0, 0.7);
+            --primary-glow-soft: rgba(255, 0, 0, 0.3);
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --bg-dark: #000000;
+            --bg-darker: #050505;
+            --danger: #ff3a3a;
+            --warning: #ffcc00;
+            
+            --font-display: 'Orbitron', sans-serif;
+            --font-mono: 'Share Tech Mono', monospace;
+            --font-main: 'Rajdhani', sans-serif;
+            --font-retro: 'VT323', monospace;
+            --font-minimal: 'Major Mono Display', monospace;
+            
+            --transition-fast: 0.15s;
+            --transition-medium: 0.3s;
+            --transition-slow: 0.6s;
+            
+            --border-radius-sm: 3px;
+            --border-radius-md: 5px;
+            --border-radius-lg: 8px;
+            
+            --box-shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
+            --box-shadow-md: 0 4px 16px rgba(0,0,0,0.6);
+            --box-shadow-lg: 0 6px 24px rgba(0,0,0,0.7);
+            
+            --text-glow-sm: 0 0 5px var(--primary-glow-soft);
+            --text-glow-md: 0 0 10px var(--primary-glow);
+            --text-glow-lg: 0 0 15px var(--primary-glow);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            height: 100%;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            cursor: url('http://cur.cursors-4u.net/cursors/cur-11/cur1054.cur'), auto;
+        }
+
+        /* Matrix Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        /* Main Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+            pointer-events: none;
+        }
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            overflow: hidden;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(5, 5, 5, 0.85);
+            border: 1px solid var(--primary-transparent);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-lg), 
+                        inset 0 0 20px rgba(0, 0, 0, 0.5),
+                        inset 0 0 10px var(--primary-transparent);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+
+        /* Header Section */
+        .header-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .breach-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--danger);
+            color: white;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--border-radius-sm);
+            transform: rotate(15deg);
+            box-shadow: var(--box-shadow-sm);
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(15deg) scale(1); }
+            50% { transform: rotate(15deg) scale(1.05); }
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            padding: 3px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px var(--primary-glow-soft),
+                      inset 0 0 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                var(--primary)
+            );
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: black;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .title-main {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-shadow: var(--text-glow-md);
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-main::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: linePulse 3s infinite;
+        }
+
+        @keyframes linePulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .title-sub {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-bottom: 2rem;
+        }
+
+        .breach-message {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 2px solid var(--primary);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .breach-message::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .breach-message::after {
+            content: '"';
+            position: absolute;
+            bottom: -30px;
+            right: 10px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        /* Target Info Section */
+        .target-info {
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .target-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 45%, rgba(255, 0, 0, 0.1) 50%, transparent 55%);
+            background-size: 300% 300%;
+            animation: shine 5s infinite;
+            z-index: -1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .contact-title {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--primary-transparent);
+            transition: all var(--transition-medium);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow-soft);
+            transform: translateY(-2px);
+        }
+
+        .contact-link i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer-section {
+            margin-top: 2rem;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .footer-section::before {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 0 auto 1rem;
+            opacity: 0.3;
+        }
+
+        /* Decorations */
+        .corner-decoration {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+        }
+
+        .corner-decoration.tl {
+            top: 10px;
+            left: 10px;
+            border-top: 2px solid var(--primary);
+            border-left: 2px solid var(--primary);
+        }
+
+        .corner-decoration.tr {
+            top: 10px;
+            right: 10px;
+            border-top: 2px solid var(--primary);
+            border-right: 2px solid var(--primary);
+        }
+
+        .corner-decoration.bl {
+            bottom: 10px;
+            left: 10px;
+            border-bottom: 2px solid var(--primary);
+            border-left: 2px solid var(--primary);
+        }
+
+        .corner-decoration.br {
+            bottom: 10px;
+            right: 10px;
+            border-bottom: 2px solid var(--primary);
+            border-right: 2px solid var(--primary);
+        }
+
+        /* Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .music-control:hover {
+            background: rgba(255, 0, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 1.5rem;
+            }
+            
+            .title-main {
+                font-size: 2rem;
+            }
+            
+            .logo-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .contact-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper {
+                padding: 1rem;
+            }
+            
+            .title-main {
+                font-size: 1.5rem;
+            }
+            
+            .breach-message {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+            
+            .system-info {
+                padding: 1rem;
+            }
+            
+            .music-control {
+                width: 35px;
+                height: 35px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* No Select */
+        .no-select {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* Context Menu Block */
+        .context-blocked {
+            animation: shake 0.15s linear;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            33% { transform: translateX(-2px); }
+            66% { transform: translateX(2px); }
+        }
+    </style>
+</head>
+<body class="no-select">
+    <!-- Matrix Background -->
+    <canvas id="matrix-canvas"></canvas>
+    <div class="overlay"></div>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Corner Decorations -->
+            <div class="corner-decoration tl"></div>
+            <div class="corner-decoration tr"></div>
+            <div class="corner-decoration bl"></div>
+            <div class="corner-decoration br"></div>
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="logo-container">
+                    <img src="https://i.pinimg.com/736x/c3/22/18/c322188a2e2e2b59445fbb3f701e5366.jpg" alt="hexdump" class="logo-img">
+                </div>
+                <div class="title-container">
+                    <h1 class="title-main">Hacked by hexdump & dracula jeddah Team</h1>
+                </div>
+            </div>
+            <!-- Status Indicator -->
+            <div class="status-indicator">
+                <div class="status-line"></div>
+                <div class="status-dot"></div>
+                <div class="status-line"></div>
+            </div>
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="breach-message">
+                    <span id="breach-message-text">uid=0(root) gid=0(root) groups=0(root)</span>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div class="footer-section">
+                <p>hexcump &copy; 2005 ALL RIGHTS RESERVED</p>
+                    <p class="title-sub">saudi arabia hacker!</p>
+            </div>
+        </div>
+        <!-- Terminal Effect -->
+        <div class="terminal-effect"></div>
+    </div>
+
+    <script language=JavaScript>
+<!--
+
+//Disable right mouse click Script
+//By Maximus (maximus@nsimail.com) w/ mods by DynamicDrive
+//For full source code, visit http://www.dynamicdrive.com
+
+var message="SAUDI ARABIA HACKER !";
+
+///////////////////////////////////
+function clickIE4(){
+if (event.button==2){
+alert(message);
+return false;
+}
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+alert(message);
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("alert(message);return false")
+</script>
+<script>(function(c,a,d){var b=function(f,e){this.el=a.querySelectorAll(f)[0];this.config=e||{};this.lyric=e.lyric||"";this.newLyric="";this.showUpSpeed=e.showUpSpeed||0;this.flashSpeed=e.flashSpeed||0;this.flashTimeout=e.flashTimeout||0;this.showOut()};b.prototype={showOut:function(){var f=this,g=0,e,h="";if(f.flashSpeed){f.newLyric=e=f.replaceFun(f.lyric,f.lyric.split(""))}else{f.newLyric=e=f.lyric}if(f.showUpSpeed){var j=setInterval(function(){h+=e.split("")[g];g++;f.newLyric=h;f.el.innerHTML=h;f.el.dataset.text=h;if(f.lyric.split("").length===g){clearInterval(j);setTimeout(function(){f.flash(f.newLyric)},f.flashTimeout)}},f.showUpSpeed)}else{f.el.innerHTML=e;f.el.dataset.text=e;setTimeout(function(){f.flash(f.newLyric)},f.flashTimeout)}},replaceFun:function(f,e){return f.split("").map(function(h){var g=e.filter(function(j,i){return e.indexOf(j)==i});return h=g[Math.floor((Math.random()*g.length))]}).join("")},flash:function(){var f=this,e=f.lyric.split(""),h=f.newLyric.split(""),g=f.flashSpeed;var i=setInterval(function(){if(h.join("")!==e.join("")){for(var j in e){if(h[j]!==e[j]){var k=e.filter(function(m,l){return e.indexOf(m)==l});h[j]=k[Math.floor((Math.random()*k.length))];f.el.innerHTML=f.el.dataset.text=h.join("")}}}else{clearInterval(i);f.callback()}},g)},callback:function(){if(this.config.callback){this.config.callback()}}};if(typeof module==="object"&&typeof module.exports==="object"){module.exports=exports=b}else{if(typeof define==="function"&&define.amd){define(function(){return b})}else{if(typeof c==="object"){c.Motto=b}}}})(window,document);
+var motto = new Motto('.title', {
+lyric: "magical of system",
+showUpSpeed: 85,
+flashSpeed: 70,
+flashTimeout: 1000,
+callback: function () {
+}
+});
+</script>
+  </body>
+</html>
+</html>
+<p>
+<body bgcolor="black" onclick="play()">
+        <audio id="sec" __idm_id__="823202817"> <source src="https://github.com/UcenHaxor07/UcenHaxor07/raw/refs/heads/main/Joseph%20Goebbels%20AFTER%20DARK%20EDIT.mp3"></audio>
+    <script>
+    var x = document.getElementById("sec");
+    function play() {
+      x.play();
+    }
+    function myFunction() {
+    }
+    function changeImage() {
+      if (document.getElementById("imgClickAndChange").src == "https://cutewallpaper.org/21/anime-suicidal/Russian-State-Media-Says-Anime-Promotes-Teen-Suicide.jpg") {
+          document.getElementById("imgClickAndChange").src = "https://cutewallpaper.org/21/anime-suicidal/Russian-State-Media-Says-Anime-Promotes-Teen-Suicide.jpg";
+        }
+      else { document.getElementById("imgClickAndChange").src = "https://cutewallpaper.org/21/anime-suicidal/Russian-State-Media-Says-Anime-Promotes-Teen-Suicide.jpg";
+
+      }
+    }
+    </script>
+</body>
+</html>
